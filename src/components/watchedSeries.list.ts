@@ -14,23 +14,18 @@ export class WatchedSeriesList extends Component {
   }
 
   render() {
-    super.cleanHtml(this.selector);
+    super.cleanHtml();
     this.template = this.createTemplate();
     const element = super.render();
-    document
-      .querySelectorAll('.button')
-      .forEach((item) =>
-        item.addEventListener('click', this.handleDelete.bind(this))
-      );
     return element;
   }
 
-  handleDelete(event: Event) {
-    const element = event.target as HTMLElement;
-    this.tasks = this.tasks.filter((item) => item.id !== element.dataset.id);
-    console.log(this.tasks);
-    this.render();
-  }
+  // TEMP handleDelete(event: Event) {
+  //   const element = event.target as HTMLElement;
+  //   this.tasks = this.tasks.filter((item) => item.id !== element.dataset.id);
+  //   console.log(this.tasks);
+  //   this.render();
+  // }
 
   createTemplate() {
     const list = this.tasks
